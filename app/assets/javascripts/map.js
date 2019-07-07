@@ -15,6 +15,14 @@ function initMap(){
   zoom: 14
   });
 
+  // マップにマーカーを表示
+  gon.points.forEach(function(point) {
+     marker = new google.maps.Marker({
+      position: new google.maps.LatLng( point.latitude, point.longitube ),
+      map: map
+    });
+  });
+
  //mapをクリックしたときのイベントを設定
  google.maps.event.addListener(map, 'click', mylistener);
  //クリックしたときの処理

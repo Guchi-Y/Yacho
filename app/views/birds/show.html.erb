@@ -1,9 +1,13 @@
 <h2><%= @bird.name %></h2>
+  <% @points.each do |point| %>
+    <p><%= point.latitude %> <%= point.longitube %></p>
+  <% end %>
+
 
 <input id="address" type="textbox">
 
 <input type="button" value="入力地点へ" onclick="codeAddress()">
-<input type="button" value="マーカーを消す" onclick="deleteMarker()">
+<%= link_to "マーカーを登録", class: 'button' %>
 <div id='map'></div>
   <ul>
     <li>lat: <span id="lat"></span></li>
@@ -12,10 +16,8 @@
 
 <style>
 #map{
-  height: 400px;
+  height: 500px;
 }
 </style>
-
-
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['MAP_API_KEY']%>&callback=initMap" async defer></script>
