@@ -1,0 +1,21 @@
+<h2><%= @bird.name %></h2>
+
+<input id="address" type="textbox">
+
+<input type="button" value="入力地点へ" onclick="codeAddress()">
+<input type="button" value="マーカーを消す" onclick="deleteMarker()">
+<div id='map'></div>
+  <ul>
+    <li>lat: <span id="lat"></span></li>
+    <li>lng: <span id="lng"></span></li>
+  </ul>
+
+<style>
+#map{
+  height: 400px;
+}
+</style>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['MAP_API_KEY']%>&callback=initMap" async defer></script>

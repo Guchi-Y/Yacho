@@ -1,0 +1,6 @@
+<ul class="birds_list">
+  <% @birds.each do |bird| %>
+    <li>
+      <%= link_to "#{bird.name}", "/birds/#{bird.id}", method: :get %>
+    </li>
+  <% end %>
