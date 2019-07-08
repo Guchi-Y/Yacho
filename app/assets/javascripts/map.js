@@ -15,6 +15,14 @@ function initMap(){
   zoom: 14
   });
 
+  // マップにマーカーを表示
+  gon.points.forEach(function(point) {
+     marker = new google.maps.Marker({
+      position: new google.maps.LatLng( point.latitude, point.longitube ),
+      map: map
+    });
+  });
+
  //mapをクリックしたときのイベントを設定
  google.maps.event.addListener(map, 'click', mylistener);
  //クリックしたときの処理
@@ -26,8 +34,8 @@ function initMap(){
   marker.setPosition(new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()));
   //marker設置
   marker.setMap(map);
-  document.getElementById('lat').textContent = e.latLng.lat();
-  document.getElementById('lng').textContent = e.latLng.lng();
+  document.getElementById('lat').value = e.latLng.lat();
+  document.getElementById('lng').value = e.latLng.lng();
  }
 }
 
@@ -38,7 +46,7 @@ function codeAddress(){
   // geocodingしたあとmapを移動
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
     if (status == 'OK') {
-　　// map.setCenterで地図が移動
+  // map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
 
     } else {
