@@ -1,19 +1,21 @@
 <h2><%= @bird.name %></h2>
-  <% @points.each do |point| %>
-    <p><%= point.latitude %> <%= point.longitube %></p>
-  <% end %>
-
+ 
+<%= link_to "メインページへ", "/" %>
 
 <input id="address" type="textbox">
-
 <input type="button" value="入力地点へ" onclick="codeAddress()">
-<%= link_to "マーカーを登録", class: 'button' %>
-<div id='map'></div>
-  <ul>
-    <li>lat: <span id="lat"></span></li>
-    <li>lng: <span id="lng"></span></li>
-  </ul>
 
+<% if user_signed_in? %> 
+  <%= form_with model: Point.new, local: true do |form| %>
+    <%= form.hidden_field :latitude, id: :lat %>
+    <%= form.hidden_field :longitube, id: :lng %>
+    <%= form.hidden_field :bird_id, value: @bird.id %>
+    <%= form.submit "マーカーを登録" %>
+  <% end %>
+<% end %>
+
+<div id='map'></div>
+ 
 <style>
 #map{
   height: 500px;
