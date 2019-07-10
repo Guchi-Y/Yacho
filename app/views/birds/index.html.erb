@@ -1,25 +1,21 @@
-<% if user_signed_in? %>
-        <div class="user_nav grid-6">
-          <span><%= current_user.name %>
-            <ul class="user__info">
-              <li>
-                <a href="/users/<%= current_user.id %>">マイページ</a>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-          
-        </div>
-      <% else %>
-        <div class="grid-6">
-          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-        </div>
-      <% end %>
-
-<ul class="birds_list">
-  <% @birds.each do |bird| %>
-    <li>
-      <%= link_to "#{bird.name}", "/birds/#{bird.id}", method: :get %>
-    </li>
-  <% end %>
+<div class="contents">
+  <div class="description" >
+  この <span style="font-family: Yahoo">Yacho!</span>（やちょー！）は野鳥の情報共有アプリです。<br />
+  目撃地点がマップで閲覧・登録出来たり、文字と画像でチャットが出来ます。<br />
+  野鳥好きの方々に、少しでも楽しんで頂けたら幸いです。
+  </div>
+  <div class="search_display" >
+    <%= image_tag 'green_bird1.png', :height =>'120'%>
+    <span>野鳥名を検索する</span>
+    <input type=form id="search_bird_name" placeholder="野鳥名を入力してください" />
+    <%= image_tag 'green_bird2.png', :height =>'150', class: 'right_image' %>  
+  </div>
+  <div class="bird" >＜ 野鳥一覧（五十音順）＞</div>
+  <ul class="birds_list">
+    <% @birds.each do |bird| %>
+      <li class="bird_name">
+        <%= link_to "#{bird.name}", "/birds/#{bird.id}", method: :get %>
+      </li>
+    <% end %>
+  </ul> 
+</div>

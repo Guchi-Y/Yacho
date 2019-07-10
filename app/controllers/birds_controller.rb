@@ -1,6 +1,6 @@
 class BirdsController < ApplicationController
   def index
-    @birds = Bird.all
+    @birds = Bird.all.order("name ASC")
   end
 
   def show
