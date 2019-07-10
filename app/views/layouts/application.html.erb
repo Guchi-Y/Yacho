@@ -11,6 +11,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1 class = "header_logo">
+        <%= link_to "Yacho!","/" %>
+      </h1>
+
+      <% if user_signed_in? %>
+        <div class="user_nav">
+          <%= link_to "ユーザー編集", edit_user_registration_path, class: 'header_button' %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'header_button' %>
+        </div>
+      <% else %>
+        <div class="user_nav">
+          <%= link_to "ログイン", new_user_session_path, class: 'header_button' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'header_button' %>
+        </div>
+      <% end %>
+    </header>
+    <div class ="padding_body">
+     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,27 @@
+$accent: #57C3E9;
+$black: #292929;
+$dark: #666;
+$darkGray: #999999;
+$gray: #D8D8D8;
+$lightGray: #f5f5f3;
+$white: white;
+$red: rgb(250, 0, 0);
+$lightGreen: rgb(120, 200, 120);
+$blightYerrow: rgb(234, 234, 115);
+
+@font-face {
+  font-family: 'Yahoo';
+  src: url('Yahoo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin boxBase($margin: 30px auto, $padding: 10px) {
+  margin: $margin;
+  padding: $padding;
+}
+@mixin baseMargin($margin: 10px auto) {
+  margin: $margin;
+}
+
+$header-height: 80px;
