@@ -1,24 +1,32 @@
-<div class ="contents">
-  <h2><%= @bird.name %></h2>
-  
-  <input id="address" type="textbox">
-  <input type="button" value="入力地点へ" onclick="codeAddress()">
+<div class ="show_contents">
+  <div class ="left_contents">
+    <h2><%= @bird.name %></h2>
+    <%= image_tag "#{@bird.image}", class: 'bird_image' %>
+    <p>＜生態＞ (wikiより抜粋)</p>
+    <%= simple_format(h(@bird.imformation)) %>
+  </div>
 
-  <% if user_signed_in? %> 
-    <%= form_with model: Point.new, local: true do |f| %>
-      <%= f.hidden_field :latitude, id: :lat %>
-      <%= f.hidden_field :longitube, id: :lng %>
-      <%= f.hidden_field :bird_id, value: @bird.id %>
-      <%= f.submit "マーカーを登録" %>
-    <% end %>
-  <% end %>
+  <div class ="right_contents">
+    <p>
+    フォームへ地名や住所を入力し「入力地点へ」を押してください。<br />
+    目撃地点をクリックして「マーカーを登録」を押すと、マーカーを登録できます。
+    </p>
+    <div class ="manipulation_field">
+      <input id="address" type="textbox" placeholder="地名や住所を入力してください" autofocus="autofocus">
+      <input class="button" type="button" value="入力地点へ" onclick="codeAddress()" >
+      <% if user_signed_in? %> 
+        <%= form_with model: Point.new, local: true do |f| %>
+          <%= f.hidden_field :latitude, id: :lat %>
+          <%= f.hidden_field :longitube, id: :lng %>
+          <%= f.hidden_field :bird_id, value: @bird.id %>
+          <%= f.submit "マーカーを登録", class: :button %>
+        <% end %>
+      <% end %>
+    </div>
 
-  <div id='map'></div>
+    <h2>目撃地点</h2>
+    <div id='map'></div>
+  </div>
 </div>
-<style>
-#map{
-  height: 500px;
-}
-</style>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['MAP_API_KEY']%>&callback=initMap" async defer></script>

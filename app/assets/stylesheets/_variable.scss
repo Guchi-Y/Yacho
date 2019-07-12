@@ -24,4 +24,21 @@ $blightYerrow: rgb(234, 234, 115);
   margin: $margin;
 }
 
+@mixin button($color, $margin) {
+  background-color: $color;
+  margin: $margin;
+  font-size: 18px;
+  padding: 3px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;  
+}
+
+@mixin heading_font {
+  font-size: 22px;
+  font-weight: 600;
+}
+
 $header-height: 80px;
+$left-contents-width: 240px;
+$contents-padding: 8px;

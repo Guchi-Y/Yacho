@@ -1,0 +1,46 @@
+.show_contents {
+  display: flex;
+  .left_contents {
+    width: $left-contents-width;
+    padding: $contents-padding;
+    border-right: 2px solid $darkGray;
+    h2 {
+      @include heading_font;
+      text-align: center;
+    }
+    .bird_image {
+      width: ($left-contents-width - $contents-padding * 2);
+    }
+    p {
+      margin: 3px 0;
+    }
+  }
+
+  .right_contents {
+      width: calc(100% - #{$left-contents-width});
+      padding: $contents-padding;
+      .manipulation_field {
+        padding: 10px 0;
+        display: flex;
+        #address {
+          @include boxBase(0, 5px);
+          width: 300px;
+        }
+        .button {
+          @include button($accent, auto 5px);
+          color: $white;
+          outline: 0;
+        }
+        form {
+          padding: 5px;
+        }
+      }
+    h2 {
+      @include heading_font;
+      text-align: center;
+    }
+    #map{
+      height: 500px;
+    }
+  }
+}
