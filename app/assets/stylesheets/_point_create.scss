@@ -1,0 +1,26 @@
+.points_create_contents {
+  background-image: url('bg2.png');
+  background-size: cover;
+  height: calc(100vh - #{$header-height});
+  position: relative;
+  .result {
+    height: 100px;
+    width: 150px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    h2 {
+      @include heading_font;
+      margin-bottom: 10px;
+    }
+    a {
+      @include button($accent, 0);
+      color: $white;
+      padding: 5px 10px;
+    }
+  }
+}
