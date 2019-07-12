@@ -1,0 +1,41 @@
+.description {
+  margin: 10px 0;
+  line-height: 1.5;
+  letter-spacing: 0.11em;
+}
+.search_display {
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  #search_bird_name {
+    @include boxBase(0, 5px);
+    width: 300px;
+    position: absolute;
+    top: 46%;
+    left: 290px;
+  }
+  span {
+    font-size: 20px;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+  }
+  .right_image {
+    position: absolute;
+    left: 580px;
+  }
+}
+.bird {
+  @include heading_font;
+  span {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+.birds_list {
+  word-break: keep-all;
+  .bird_name {
+    margin-right: 12px;
+    display: inline;
+  }
+}

@@ -11,8 +11,8 @@ function initMap(){
   geocoder = new google.maps.Geocoder()
 
   map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.6804, lng: 139.769017},
-  zoom: 14
+  center: {lat: 37.6804, lng: 139.769017},
+  zoom: 5
   });
 
   // マップにマーカーを表示
@@ -48,7 +48,7 @@ function codeAddress(){
     if (status == 'OK') {
   // map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
-
+      map.setZoom(16);
     } else {
       alert('次の理由により、ジオコードが成功しませんでした: ' + status);
     }
