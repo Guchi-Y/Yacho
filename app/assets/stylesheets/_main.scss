@@ -24,8 +24,8 @@ body {
 }
 
 .header_logo {
-  margin-left: 20vw;
   a{
+    margin-left: 27vw;
     color: $red;
     font-size: 36px;
     font-family: 'Yahoo';
@@ -50,4 +50,16 @@ body {
 
 .contents {
   padding: 0 5vw;
+}
+
+.button {
+  @include button($accent, auto 5px);
+  color: $white;
+  outline: 0;
+  &:hover {
+    color: $black;
+    background-color: $gray;
+    cursor: pointer;
+    opacity: 0.5;
+  }
 }
