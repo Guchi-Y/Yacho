@@ -1,0 +1,21 @@
+<div class ="new-edit_contents">
+  <%= form_with model: [@bird, @message] do |f| %>
+    <%= f.submit '  チャット編集を完了する  ', class: :button %><br />
+    <%= f.text_area :text, class: "message_text_area", value: @message.text, autofocus: true %>
+    <%= f.hidden_field :bird_id, value: @bird.id %>
+    <%= f.label :image do %>
+      <%= f.file_field :image, id: :message_image %>
+      <p class="button">画像を変更する</p>
+    <% end %>
+  <% end %>
+  <div class ="preview_display">
+    <p id="preview_box">
+      <% if @message.image.present? %>
+        <%= image_tag "#{@message.image}", width: '100%' %>
+      <% else %>
+        プレビューが表示されます
+      <% end %>
+    </p>
+  </div>
+</div>
+

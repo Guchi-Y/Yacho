@@ -12,6 +12,16 @@ class MessagesController < ApplicationController
     move_to_bird_show unless (Message.create(message_params)).save
   end
 
+  def edit
+    @message = Message.find(params[:id])
+  end
+
+  def update
+    message = Message.find(params[:id])
+    message.update(message_params) if message.user_id == current_user.id
+    move_to_bird_show
+  end
+
   def destroy
     message = Message.find(params[:id])
     message.destroy if message.user_id == current_user.id

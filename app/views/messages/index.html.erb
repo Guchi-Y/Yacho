@@ -19,7 +19,7 @@
             <li class="menu_single">
               <span>MENU▶︎</span>
               <ul class="menu_second-level">
-                <li class="menu_edit_button"><a href="/">編集</a></li>
+                <li class="menu_edit_button"><%= link_to '編集', "/birds/#{@bird.id}/messages/#{message.id}/edit", method: :get %></li>
                 <li class="menu_delete_button"><%= link_to '削除', "/birds/#{@bird.id}/messages/#{message.id}", method: :delete %></li>
               </ul>
             </li>

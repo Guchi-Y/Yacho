@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root 'birds#index'
   resources :points, only: [:create]
   resources :birds, only: [:index, :show] do
-    resources :messages, only: [:index, :new, :create, :edit, :destroy]
+    resources :messages
   end
 end
