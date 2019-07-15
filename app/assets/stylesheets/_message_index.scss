@@ -38,6 +38,7 @@
   }
   .menu_second-level {
     @include message_menu_button(absolute, none);
+    width: 80px;
     text-align: center;
     text-indent:0.8em;
     letter-spacing:0.8em;
@@ -47,7 +48,7 @@
         color: $white;
         text-decoration: none;
         &:hover {
-          color: $black;
+          color: $dark;
           transition: all 0.5s ease 0s;
         }
       }
