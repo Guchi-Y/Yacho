@@ -9,7 +9,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    redirect_to "/birds/#{@bird.id}/messages" unless (Message.create(message_params)).save
+    move_to_bird_show unless (Message.create(message_params)).save
+  end
+
+  def destroy
+    message = Message.find(params[:id])
+    message.destroy if message.user_id == current_user.id
+    move_to_bird_show
   end
 
   private
@@ -20,5 +26,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:text, :image, :bird_id).merge(user_id: current_user.id)
+  end
+
+  def move_to_bird_show
+    redirect_to "/birds/#{@bird.id}/messages"
   end
 end

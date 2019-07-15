@@ -1,9 +1,9 @@
-  document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById('message_image').addEventListener('change', function(e) {
-      var files = e.target.files;
-      previewUserFiles(files);
-    });
-  }, false);
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById('message_image').addEventListener('change', function(e) {
+    var files = e.target.files;
+    previewUserFiles(files);
+  });
+}, false);
 
 function previewUserFiles(files) {
   resetPreview();
