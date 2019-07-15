@@ -24,7 +24,7 @@ body {
 }
 
 .header_logo {
-  a{
+  a {
     margin-left: 27vw;
     color: $red;
     font-size: 36px;
@@ -34,7 +34,7 @@ body {
   } 
 }
 
-.user_nav{
+.user_nav {
   margin-left: auto;
   .header_button {
     @include button($blightYerrow, 10px 10px 10px 0)
@@ -58,8 +58,8 @@ body {
   outline: 0;
   &:hover {
     color: $black;
-    background-color: $gray;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.7;
+    transition: all 0.5s ease 0s;
   }
 }

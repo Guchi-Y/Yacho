@@ -1,0 +1,36 @@
+<div class ="show_contents">
+
+  <div class ="left_contents">
+    <h2><%= @bird.name %></h2>
+    <%= image_tag "#{@bird.image}", class: 'bird_image' %>
+    <p>＜生態＞ (wikiより抜粋)</p>
+    <%= simple_format(h(@bird.imformation)) %>
+  </div>
+
+  <div class ="right_contents">
+  <% if user_signed_in? %> 
+    <%= link_to 'チャットを投稿する', "/birds/#{@bird.id}/messages/new", class: 'button post_button'%>
+  <% end %>
+    <h2>＜チャット一覧＞</h2>
+      <% @messages.each do |message| %>
+        <div class="message_display">
+        <% if user_signed_in? && current_user.id == message.user_id %>
+          <ul class="menu">
+            <li class="menu_single">
+              <span>MENU▶︎</span>
+              <ul class="menu_second-level">
+                <li class="menu_button"><a href="/">編集</a></li>
+                <li class="menu_button"><a href="/">削除</a></li>
+              </ul>
+            </li>
+          </ul>
+          <% else %>
+            <p class="message_user_name"><%= message.user.name %> さん</p>
+          <% end %>
+          <div class="message_text_display"><%= simple_format(message.text) %></div>
+          <%= image_tag "#{message.image}", class: 'message_image' if message.image.present? %>
+        </div>
+      <% end %>
+  </div>
+
+</div>
