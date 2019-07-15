@@ -1,5 +1,5 @@
 <div class ="new-edit_contents">
-  <%= form_with model: [@bird, Message.new], local: true do |f| %>
+  <%= form_with model: [@bird, Message.new] do |f| %>
     <%= f.submit '  チャットを投稿する  ', class: :button %><br />
     <%= f.text_area :text, class: "message_text_area", placeholder: "画像のみでも投稿出来ます", autofocus: true %>
     <%= f.hidden_field :bird_id, value: @bird.id %>
