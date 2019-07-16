@@ -18,15 +18,23 @@ $(function() {
     search_list.append(html);
   }
 
+  function hiraganaToKatakana(str) {
+    return str.replace(/[\u3041-\u3096]/g, function(match) {
+        var chr = match.charCodeAt(0) + 0x60;
+        return String.fromCharCode(chr);
+    });
+  }
+
   $("#search_bird_name").on('keyup', function() {
   
     var input = $("#search_bird_name").val();
     if (input != preInput){
+      change_katakana_input = hiraganaToKatakana(input)
 
       $.ajax({
         type: 'GET',
         url: '/birds/search',
-        data: { birds_name: input },
+        data: { birds_name: change_katakana_input },
         dataType: 'json'
       })
       
