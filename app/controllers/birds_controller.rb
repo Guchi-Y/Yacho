@@ -7,4 +7,7 @@ class BirdsController < ApplicationController
     @bird = Bird.find(params[:id])
     gon.points = @bird.points.includes(:bird)
   end
+
+  def search
+  end
 end
