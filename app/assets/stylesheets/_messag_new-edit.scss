@@ -7,7 +7,7 @@
     .message_text_area {
       height: 50vh;
       width: 50vw;
-      margin: 10px 20px 0 0;
+      margin-top: 10px;
       padding: 5px;
       background-color: $lightGray;
     }
@@ -25,7 +25,7 @@
   }
   .preview_display {
     width: 40vw;
-    margin-top: 45px;
+    margin: 45px 0 0 20px;
     #preview_box {
       min-height: 300px;
       width: 40vw;
