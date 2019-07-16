@@ -1,10 +1,12 @@
 .description {
-  margin: 10px 0;
+  width: 700px;
+  margin: 10px auto;
   line-height: 1.5;
   letter-spacing: 0.11em;
 }
 .search_display {
-  margin-bottom: 30px;
+  width: 730px;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
   #search_bird_name {
@@ -23,6 +25,20 @@
   .right_image {
     position: absolute;
     left: 580px;
+  }
+}
+.search_result_display {
+  width: 500px;
+  background-color: rgba(215, 250, 205, 0.7);
+  margin: 0 auto 20px;
+  padding: 8px;
+  border-radius: 10px;
+  p {
+    @include heading_font;
+    text-align: center;
+  }
+  #search_birds_result {
+    text-align: center;
   }
 }
 .bird {

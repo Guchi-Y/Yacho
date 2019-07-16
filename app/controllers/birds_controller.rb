@@ -9,5 +9,15 @@ class BirdsController < ApplicationController
   end
 
   def search
+    @birds = Bird.where('name LIKE(?)', not_input_decision)
+    respond_to do |format|
+      format.json { render 'index', json: @birds }
+    end
+  end
+
+  private
+
+  def not_input_decision
+    params[:birds_name].length == 0 ? "" : "%#{params[:birds_name]}%"
   end
 end
