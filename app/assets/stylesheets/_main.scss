@@ -37,7 +37,11 @@ body {
 .user_nav {
   margin-left: auto;
   .header_button {
-    @include button($blightYerrow, 10px 10px 10px 0)
+    @include button($blightYerrow, 10px 10px 10px 0);
+    padding: 6px 3px;
+    color: $black;
+    background: linear-gradient($blightYerrow, $darkYerrow);
+    word-break: keep-all;
   }
 }
 
