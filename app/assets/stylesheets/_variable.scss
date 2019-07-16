@@ -8,6 +8,7 @@ $white: white;
 $red: rgb(250, 0, 0);
 $lightGreen: rgb(120, 200, 120);
 $blightYerrow: rgb(234, 234, 115);
+$darkYerrow: rgb(185, 185, 101);
 
 @font-face {
   font-family: 'Yahoo';
@@ -29,9 +30,11 @@ $blightYerrow: rgb(234, 234, 115);
   margin: $margin;
   font-size: 18px;
   padding: 3px;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  text-decoration: none;  
+  text-decoration: none;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
 @mixin heading_font {
@@ -39,6 +42,17 @@ $blightYerrow: rgb(234, 234, 115);
   font-weight: 600;
 }
 
+@mixin message_menu_button($position, $display) {
+  position: $position;
+  display: $display;
+  background-color: $accent;
+  color: $white;
+  width: $message_menu_button-width;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
 $header-height: 80px;
 $left-contents-width: 240px;
 $contents-padding: 8px;
+$message_menu_button-width: 85px;

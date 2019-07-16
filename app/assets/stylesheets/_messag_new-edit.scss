@@ -1,0 +1,38 @@
+.new-edit_contents {
+  display: flex;
+  padding: 10px 15px;
+  position: relative;
+  form {
+    text-align: center;
+    .message_text_area {
+      height: 50vh;
+      width: 50vw;
+      margin-top: 10px;
+      padding: 5px;
+      background-color: $lightGray;
+    }
+    label {
+      #message_image {
+        display: none;
+      }
+      .button {
+        width: 220px;
+        position: absolute;
+        top: 10px;
+        left: 62vw;
+      }
+    }
+  }
+  .preview_display {
+    width: 40vw;
+    margin: 45px 0 0 20px;
+    #preview_box {
+      min-height: 300px;
+      width: 40vw;
+      padding: 10px;
+      border: 1px solid $black;
+      border-radius: 10px;
+      text-align: center;
+    }
+  }
+}

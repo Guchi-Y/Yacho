@@ -19,17 +19,18 @@
   .right_contents {
       width: calc(100% - #{$left-contents-width});
       padding: $contents-padding;
+      .chat_button {
+        width: 35vw;
+        margin: 0 auto 10px;
+        display:block;
+        text-align: center;
+      }
       .manipulation_field {
         padding: 10px 0;
         display: flex;
         #address {
-          @include boxBase(0, 5px);
+          @include boxBase(0 5px, 5px);
           width: 300px;
-        }
-        .button {
-          @include button($accent, auto 5px);
-          color: $white;
-          outline: 0;
         }
         form {
           padding: 5px;

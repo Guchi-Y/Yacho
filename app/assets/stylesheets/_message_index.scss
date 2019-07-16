@@ -1,0 +1,57 @@
+.right_contents {
+  .post_button {
+    width: 35vw;
+    margin: 0 auto 15px;
+    display:block;
+    text-align: center;
+  }
+  .message_display {
+    margin: 10px 5vw;
+    padding: 6px 10px;
+    border: 1px solid $darkGray;
+    border-radius: 10px;
+    background-color: rgba(235, 235, 224, 0.5);
+    .message_user_name {
+      padding-left: 10px;
+      font-weight: bold;
+    }
+    .message_text_display {
+      padding-bottom: 5px;
+      border-bottom: 1px solid $darkGray;
+    }
+    .message_image {
+      width: 40vw;
+    }
+  }
+}
+
+.menu_single {
+  @include message_menu_button(relative, flex);
+  margin-bottom: 3px;
+  cursor: pointer;
+  &:hover .menu_second-level {
+    left: $message_menu_button-width;
+    display: block;
+  }
+  span {
+    margin: auto;
+  }
+  .menu_second-level {
+    @include message_menu_button(absolute, none);
+    width: 80px;
+    text-align: center;
+    text-indent:0.8em;
+    letter-spacing:0.8em;
+    .menu_edit_button, .menu_delete_button {
+      padding: 2px 0;
+      a{
+        color: $white;
+        text-decoration: none;
+        &:hover {
+          color: $dark;
+          transition: all 0.5s ease 0s;
+        }
+      }
+    }
+  }
+}
