@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_bird
   
   def index
-    @messages = @bird.messages.includes(:user).order("id DESC")
+    @messages = @bird.messages.includes(:user).order("id DESC").page(params[:page]).per(10)
   end
 
   def new

@@ -12,6 +12,7 @@
     <%= link_to 'チャットを投稿する', "/birds/#{@bird.id}/messages/new", class: 'button post_button'%>
   <% end %>
     <h2>＜チャット一覧＞</h2>
+    <%= paginate(@messages) %>
       <% @messages.each do |message| %>
         <div class="message_display">
         <% if user_signed_in? && current_user.id == message.user_id %>
@@ -31,8 +32,8 @@
           <%= image_tag "#{message.image}", class: 'message_image' if message.image.present? %>
         </div>
       <% end %>
+    <%= paginate(@messages) %>
   </div>
-
 </div>
 <script>
   $('.menu_delete_button').click(function(){
