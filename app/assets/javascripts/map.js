@@ -20,7 +20,8 @@ function initMap(){
   gon.points.forEach(function(point) {
      marker = new google.maps.Marker({
       position: new google.maps.LatLng( point.latitude, point.longitube ),
-      map: map
+      map: map,
+      icon: image_path("bird_icon.png")
     });
     mcs.push(marker);
   });
