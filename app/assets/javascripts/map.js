@@ -5,6 +5,7 @@ geocoderを用意
 
 let map
 let geocoder
+let mcs = [];
 
 function initMap(){
   // geocoderを初期化
@@ -19,9 +20,18 @@ function initMap(){
   gon.points.forEach(function(point) {
      marker = new google.maps.Marker({
       position: new google.maps.LatLng( point.latitude, point.longitube ),
-      map: map
+      map: map,
+      icon: image_path("bird_icon.png")
     });
+    mcs.push(marker);
   });
+
+  var mcOptions = {
+    gridSize: 50,
+    maxZoom: 15,
+    imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+  };
+  new MarkerClusterer( map, mcs, mcOptions );
 
  //mapをクリックしたときのイベントを設定
  google.maps.event.addListener(map, 'click', mylistener);
@@ -50,7 +60,7 @@ function codeAddress(){
       map.setCenter(results[0].geometry.location);
       map.setZoom(16);
     } else {
-      alert('次の理由により、ジオコードが成功しませんでした: ' + status);
+      alert('エラー: ' + status);
     }
   });
 }
