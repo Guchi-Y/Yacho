@@ -15,7 +15,7 @@
     <ul id="search_birds_result"></ul>
   </div>
   <div class="bird" >
-    ＜ 野鳥一覧（五十音順）＞  <span>※()内の数字は目撃地点の数</span>
+    ＜ 野鳥一覧（五十音順）<%= @birds.count %>種類＞  <span>※()内の数字は目撃地点の数</span>
   </div>
   <ul class="birds_list">
     <% @birds.each do |bird| %>
