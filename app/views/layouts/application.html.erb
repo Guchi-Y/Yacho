@@ -12,6 +12,14 @@
 
     <body data-turbolinks="false">
     <header>
+      <p class="current_user_name">ようこそ<br/>
+        <% if user_signed_in? %>
+          <%= current_user.name %> さん
+        <% else %>
+          ゲスト さん
+        <% end %>
+      </p>
+
       <h1 class = "header_logo">
         <%= link_to "Yacho!","/" %>
       </h1>

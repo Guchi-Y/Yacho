@@ -10,6 +10,29 @@ header {
   align-items: center;
   position: fixed;
   z-index: 1;
+  .current_user_name {
+    margin-left: 10px;
+  }
+  .header_logo {
+    a {
+      margin-left: 22vw;
+      color: $red;
+      font-size: 36px;
+      font-family: 'Yahoo';
+      cursor: pointer;
+      text-decoration: none;
+    } 
+  }
+  .user_nav {
+    margin-left: auto;
+    .header_button {
+      @include button($blightYerrow, 10px 10px 10px 0);
+      padding: 6px 3px;
+      color: $black;
+      background: linear-gradient($blightYerrow, $darkYerrow);
+      word-break: keep-all;
+    }
+  }
 }
 
 body {
@@ -21,28 +44,6 @@ body {
   font-family: "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
   font-size: 18px;
   color: $black;
-}
-
-.header_logo {
-  a {
-    margin-left: 27vw;
-    color: $red;
-    font-size: 36px;
-    font-family: 'Yahoo';
-    cursor: pointer;
-    text-decoration: none;
-  } 
-}
-
-.user_nav {
-  margin-left: auto;
-  .header_button {
-    @include button($blightYerrow, 10px 10px 10px 0);
-    padding: 6px 3px;
-    color: $black;
-    background: linear-gradient($blightYerrow, $darkYerrow);
-    word-break: keep-all;
-  }
 }
 
 .padding_body {
