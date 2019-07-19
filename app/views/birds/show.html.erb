@@ -1,10 +1,6 @@
 <div class ="show_contents">
-  <div class ="left_contents">
-    <h2><%= @bird.name %></h2>
-    <%= image_tag "#{@bird.image}", class: 'bird_image' %>
-    <p>＜生態＞ (wikiより抜粋)</p>
-    <%= simple_format(h(@bird.imformation)) %>
-  </div>
+  
+  <%= render partial: '../views/shared/left-contents', locals: { bird: @bird } %>
 
   <div class ="right_contents">
     <%= link_to "チャットページへ", "/birds/#{@bird.id}/messages", class: 'button chat_button' %>
