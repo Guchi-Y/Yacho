@@ -13,17 +13,17 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    @message = Message.find(params[:id])
+    @message = find_message
   end
 
   def update
-    message = Message.find(params[:id])
+    message = find_message
     message.update(message_params) if message.user_id == current_user.id
     move_to_bird_show
   end
 
   def destroy
-    message = Message.find(params[:id])
+    message = find_message
     message.destroy if message.user_id == current_user.id
     move_to_bird_show
   end
@@ -32,6 +32,10 @@ class MessagesController < ApplicationController
 
   def set_bird
     @bird = Bird.find(params[:bird_id])
+  end
+
+  def find_message
+    Message.find(params[:id])
   end
 
   def message_params
