@@ -14,8 +14,8 @@ header {
     margin-left: 10px;
   }
   .header_logo {
+    margin: 0 auto;
     a {
-      margin-left: 22vw;
       color: $red;
       font-size: 36px;
       font-family: 'Yahoo';
@@ -24,7 +24,6 @@ header {
     } 
   }
   .user_nav {
-    margin-left: auto;
     .header_button {
       @include button($blightYerrow, 10px 10px 10px 0);
       padding: 6px 3px;
