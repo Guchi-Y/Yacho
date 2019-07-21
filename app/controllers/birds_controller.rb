@@ -1,6 +1,6 @@
 class BirdsController < ApplicationController
   def index
-    @birds = Bird.all.order("name ASC")
+    @birds = Bird.all.order_bird_name
   end
 
   def show
@@ -9,7 +9,7 @@ class BirdsController < ApplicationController
   end
 
   def search
-    @birds = Bird.where('name LIKE(?)', not_input_decision)
+    @birds = Bird.where('name LIKE(?)', not_input_decision).order_bird_name
     respond_to do |format|
       format.json { render 'index', json: @birds }
     end
