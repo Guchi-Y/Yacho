@@ -1,5 +1,6 @@
 let map
 let geocoder
+let preMarker
 let mcs = [];
 
 function initMap(){
@@ -26,14 +27,18 @@ function initMap(){
   };
   new MarkerClusterer( map, mcs, mcOptions );
 
- google.maps.event.addListener(map, 'click', mylistener);
- function mylistener(e){
-  var marker = new google.maps.Marker();
-  marker.setPosition(new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()));
-  marker.setMap(map);
-  document.getElementById('lat').value = e.latLng.lat();
-  document.getElementById('lng').value = e.latLng.lng();
- }
+  google.maps.event.addListener(map, 'click', mylistener);
+  function mylistener(e){
+    if (typeof preMarker !== 'undefined') {
+      preMarker.setMap(null);
+    }
+    var marker = new google.maps.Marker();
+    marker.setPosition(new google.maps.LatLng(e.latLng.lat(), e.latLng.lng()));
+    marker.setMap(map);
+    document.getElementById('lat').value = e.latLng.lat();
+    document.getElementById('lng').value = e.latLng.lng();
+    preMarker = marker;
+  }
 }
 
 function codeAddress(){
