@@ -36,6 +36,10 @@
   p {
     @include heading_font;
     text-align: center;
+    span {
+      font-size: 18px;
+      font-weight: 500;
+    }
   }
   #search_birds_result {
     text-align: center;

@@ -4,9 +4,9 @@ $(function() {
   var preInput;
 
 
-  function appendbirdName(birdName, birdId) {
+  function appendbirdName(birdName, birdId, birdPointsCount) {
     var html = `<li class="result_bird_name">
-                  <a href="/birds/${birdId}">${birdName}</a>
+                  <a href="/birds/${birdId}">${birdName}(${birdPointsCount})</a>
                 </li>`
     search_list.append(html);
   }
@@ -46,7 +46,7 @@ $(function() {
         }
         
         birds.forEach(function(bird) {
-          appendbirdName(bird.name, bird.id);
+          appendbirdName(bird[0].name, bird[0].id, bird[1]);
         });
       })
       
