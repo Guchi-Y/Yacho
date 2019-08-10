@@ -1,0 +1,3 @@
+<li class="bird_name">
+  <%= link_to "#{bird.name}(#{bird.points.includes(:bird).count})", "/birds/#{bird.id}", method: :get %>
+</li>

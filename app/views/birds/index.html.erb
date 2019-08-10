@@ -18,10 +18,6 @@
     ＜ 野鳥一覧（五十音順）<%= @birds.count %>種類＞  <span>※()内の数字は目撃地点の数</span>
   </div>
   <ul class="birds_list">
-    <% @birds.each do |bird| %>
-      <li class="bird_name">
-        <%= link_to "#{bird.name}(#{bird.points.includes(:bird).count})", "/birds/#{bird.id}", method: :get %>
-      </li>
-    <% end %>
+    <%= render partial: "bird", collection: @birds %>
   </ul> 
 </div>
